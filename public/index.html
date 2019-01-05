@@ -15,24 +15,13 @@
 </head>
 
 <body>
-    <!-- ============================================================== -->
-    <!-- main wrapper -->
-    <!-- ============================================================== -->
     <div class="dashboard-main-wrapper">
-         <!-- ============================================================== -->
-        <!-- navbar -->
-        <!-- ============================================================== -->
+
          <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
                 <a class="navbar-brand" href="#">Detect IP</a>
             </nav>
         </div>
-        <!-- ============================================================== -->
-        <!-- end navbar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- left sidebar -->
-        <!-- ============================================================== -->
       <div class="nav-left-sidebar sidebar-dark">
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
@@ -55,12 +44,6 @@
                 </nav>
             </div>
         </div>
-        <!-- ============================================================== -->
-        <!-- end left sidebar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- wrapper  -->
-        <!-- ============================================================== -->
         <div class="dashboard-wrapper">
                     
             <div class="container-fluid dashboard-content">
@@ -78,20 +61,6 @@
                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12"style="margin:0 auto">
                     <div class="card">
                         <div class="card-body">
-                                <!-- <div id="loader" class="outer">
-                                        <div  class="inner">
-                                          <div class="small"></div>
-                                          <div class="small"></div>
-                                          <div class="small"></div>
-                                          <div class="small"></div>
-                                        </div>
-                                        <div class="big">
-                                          <div class="small"></div>
-                                        </div>
-                                        <div class="big">
-                                          <div class="small"></div>
-                                        </div>
-                                    </div> -->
                             <h2 class="card-title">IP Information</h2>
                             <h3 id="title" class="card-title"></h3>
                             <div id="ip-data" class="card-text">
@@ -103,47 +72,41 @@
                 </div>
             </div>
             <hr/>
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
 
-            <!-- ============================================================== -->
-            <!-- end footer -->
-            <!-- ============================================================== -->
         </div>
         
     </div>
 
-    <!-- ============================================================== -->
-    <!-- end main wrapper -->
-    <!-- ============================================================== -->
-    <!-- Optional JavaScript -->
+
 
     <script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
     <script src="assets/libs/js/main-js.js"></script>
-    <!-- <script src="assets/libs/js/checkip.js"></script> -->
 
     <script>
+        var btn = document.getElementById('btn');
+       
+        fetch("/myip")
+        .then((res) => res.json())
+        .then((data)=> {input.value = data.ip;
+            btn.click();
+        });
+
+
         const dataArry = [];
         var input = document.getElementById("ip_input");
-        var btn = document.getElementById('btn');
             input.addEventListener("keyup", function(event) {
-          // Cancel the default action, if needed
           event.preventDefault();
-          // Number 13 is the "Enter" key on the keyboard
           if (event.keyCode === 13) {
-            // Trigger the button element with a click
             btn.click();
           }
             });
         
             
             btn.onclick =  async function run(){
-              console.log(typeof input.value);
                     fetch(`/ip?ip=${input.value}`)
-                    .then((res) => res.json())// Transform the data into json
+                    .then((res) => res.json())
                     .then((data) =>{
                         if (data.status === "error") {
                             $("#title").removeClass();
@@ -164,7 +127,6 @@
                             $("#title").addClass("card-text bg-success");
                             }
                         }
-                        //document.getElementById('ip-data').innerHTML = JSON.stringify(data);
                     })
                 }
 

@@ -12,6 +12,15 @@ app.get("/ip",(req,res)=>{
       res.send(JSON.parse(body));
     })
   });
+
+
+  app.get("/myip",(req,res)=>{
+  
+ 
+    request(`https://api.ipify.org?format=json`, function(error, result, body) {
+       res.send(JSON.parse(body));
+     });
+   });
     
 app.listen(port, () => {
   console.log(`Server is up on port ${port}`);
