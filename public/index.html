@@ -87,7 +87,7 @@
     <script>
         var btn = document.getElementById('btn');
        
-        fetch("/myip")
+        fetch("https://api.ipify.org/")
          .then((res) => res.text())
         .then((data)=> {
             input.value = data;
