@@ -1,10 +1,13 @@
 const express = require('express');
 const port = process.env.PORT || 3000;
-var app = express();
+
 const request = require('request');
+const getIP = require('external-ip')();
+
+var app = express();
 
 app.use(express.static(__dirname + '/public'));
-
+app.set('trust proxy', true);
 app.get("/ip",(req,res)=>{
   
  
@@ -15,9 +18,18 @@ app.get("/ip",(req,res)=>{
 
 
    app.get("/myip",(req,res)=>{
-    var ip = req.ip.split(':').pop()
+  
+    
+ 
+    getIP((err, ip) => {
+        if (err) {
+            // every service in the list has failed
+            throw err;
+        }
+        res.send(ip);
+    });
 
-  res.send(ip); 
+   
 
 
 //     // request(`https://api.ipify.org?format=json`, function(error, result, body) {
