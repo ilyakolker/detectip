@@ -3,9 +3,6 @@ const port = process.env.PORT || 3000;
 var app = express();
 const request = require('request');
 
-
-
-
 app.use(express.static(__dirname + '/public'));
 
 app.get("/ip",(req,res)=>{
@@ -16,7 +13,6 @@ app.get("/ip",(req,res)=>{
     })
   });
     
-
 app.listen(port, () => {
   console.log(`Server is up on port ${port}`);
 });
