@@ -88,8 +88,9 @@
         var btn = document.getElementById('btn');
        
         fetch("/myip")
-        .then((res) => res.json())
-        .then((data)=> {input.value = data.ip;
+         .then((res) => res.text())
+        .then((data)=> {
+            input.value = data;
             btn.click();
         });
 

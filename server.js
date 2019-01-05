@@ -22,9 +22,6 @@ app.get("/ip",(req,res)=>{
     res.send(await publicIp.v4());
 })();
 
-    // require('dns').lookup(require('os').hostname(), function (err, add, fam) {
-    //   console.log('addr: '+add);
-    // })
     // request(`https://api.ipify.org?format=json`, function(error, result, body) {
     //    res.send(JSON.parse(body));
     //  });
