@@ -15,11 +15,19 @@ app.get("/ip",(req,res)=>{
 
 
   app.get("/myip",(req,res)=>{
-  
+
+  const publicIp = require('public-ip');
  
-    request(`https://api.ipify.org?format=json`, function(error, result, body) {
-       res.send(JSON.parse(body));
-     });
+(async () => {
+    res.send(await publicIp.v4());
+})();
+
+    // require('dns').lookup(require('os').hostname(), function (err, add, fam) {
+    //   console.log('addr: '+add);
+    // })
+    // request(`https://api.ipify.org?format=json`, function(error, result, body) {
+    //    res.send(JSON.parse(body));
+    //  });
    });
     
 app.listen(port, () => {
