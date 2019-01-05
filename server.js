@@ -17,25 +17,6 @@ app.get("/ip",(req,res)=>{
   });
 
 
-   app.get("/myip",(req,res)=>{
-  
-    
- 
-    getIP((err, ip) => {
-        if (err) {
-            // every service in the list has failed
-            throw err;
-        }
-        res.send(ip);
-    });
-
-   
-
-
-//     // request(`https://api.ipify.org?format=json`, function(error, result, body) {
-//     //    res.send(JSON.parse(body));
-//     //  });
-    });
     
 app.listen(port, () => {
   console.log(`Server is up on port ${port}`);

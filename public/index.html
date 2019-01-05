@@ -85,9 +85,8 @@
     <script src="assets/libs/js/main-js.js"></script>
 
     <script>
-        var btn = document.getElementById('btn');
-     //   https://api.ipify.org
-        fetch("/myip")
+        var btn = document.getElementById('btn');  
+        fetch("https://api.ipify.org")
          .then((res) => res.text())
         .then((data)=> {
             //console.log(data);
