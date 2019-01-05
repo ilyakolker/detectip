@@ -86,10 +86,11 @@
 
     <script>
         var btn = document.getElementById('btn');
-       
-        fetch("https://api.ipify.org/")
+     //   https://api.ipify.org
+        fetch("/myip")
          .then((res) => res.text())
         .then((data)=> {
+            console.log(data);
             input.value = data;
             btn.click();
         });

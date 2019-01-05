@@ -14,18 +14,16 @@ app.get("/ip",(req,res)=>{
   });
 
 
-//   app.get("/myip",(req,res)=>{
+   app.get("/myip",(req,res)=>{
+    var ip = req.ip.split(':').pop()
 
-//   const publicIp = require('public-ip');
- 
-// (async () => {
-//     res.send(await publicIp.v4());
-// })();
+  res.send(ip); 
+
 
 //     // request(`https://api.ipify.org?format=json`, function(error, result, body) {
 //     //    res.send(JSON.parse(body));
 //     //  });
-//    });
+    });
     
 app.listen(port, () => {
   console.log(`Server is up on port ${port}`);
