@@ -62,7 +62,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h2 class="card-title">IP Information</h2>
-                            <h3 id="title" class="card-title"></h3>
+                            <h4 id="title" class="card-title"></h4>
                             <div id="ip-data" class="card-text">
                                 
                             </div>
@@ -112,7 +112,7 @@
                     .then((data) =>{
                         if (data.status === "error") {
                             $("#title").removeClass();
-                            $("#title").text(data.message);
+                            $("#title").text(`${data.message} for: ${input.value}`);
                             $("#title").addClass("card-text bg-info");
                             $("#ip-data").text("");
       
@@ -120,12 +120,12 @@
                             if (data[ip_input.value].proxy === "yes") {
                             BuildData(data);
                             $("#title").removeClass();
-                            $("#title").text("Proxy Detected");
+                            $("#title").text(`Proxy Detected for: ${input.value}`);
                             $("#title").addClass("card-text bg-danger"); 
                             }else {
                             BuildData(data);
                             $("#title").removeClass();
-                            $("#title").text("Proxy Not detected");
+                            $("#title").text(`Proxy Not detected for: ${input.value}`);
                             $("#title").addClass("card-text bg-success");
                             }
                         }

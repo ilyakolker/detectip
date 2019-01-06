@@ -8033,4 +8033,9 @@ Media Query
     -o-animation: fourth 4s infinite linear;
     animation: fourth 4s infinite linear;
   }
+
+  #title {
+      border-radius: 10px;
+      text-align: center;
+  }
   
