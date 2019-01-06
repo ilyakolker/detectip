@@ -2,7 +2,7 @@ const express = require('express');
 const port = process.env.PORT || 3000;
 
 const request = require('request');
-const getIP = require('external-ip')();
+
 
 var app = express();
 
