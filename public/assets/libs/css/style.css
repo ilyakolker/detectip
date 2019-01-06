@@ -8037,5 +8037,6 @@ Media Query
   #title {
       border-radius: 10px;
       text-align: center;
+      opacity: 0.8;
   }
   
